@@ -1,0 +1,25 @@
+﻿@model MvcProjectCamp.EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "EditAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Admin Info</h2>
+@using (Html.BeginForm("EditAdmin", "Authorization", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.AdminId, new { @class = "form-control" })
+        @Html.Label("Username")
+        @Html.TextBoxFor(x => x.AdminUsername, new { @class = "form-control" })
+        <br />
+        @Html.Label("Password")
+        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+        <br />
+        @Html.Label("Role")
+        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Update</button>
+    </div>
+}
+

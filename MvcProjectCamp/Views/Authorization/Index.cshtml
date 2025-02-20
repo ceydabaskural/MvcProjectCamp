@@ -1,0 +1,41 @@
+﻿@model List<MvcProjectCamp.EntityLayer.Concrete.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+
+        <th></th>
+        <th>User Mail</th>
+        <th>Authorization</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Change Authorization</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AdminId</th>
+            <td>@item.AdminUsername</td>
+            <td>@item.AdminRole</td>
+            <td>
+                <a href="@Url.Action("Status", "About", new { id = item.AdminId })">
+                    @if (item.IsActive)
+                    {
+                        <i class="fas fa-times-circle text-danger"> Passive</i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-check-circle text-success"> Active</i>
+                    }
+                </a>
+            </td>
+            <td><a href="/Authorization/DeleteAdmin/@item.AdminId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Authorization/UpdateAdmin/@item.AdminId" class="btn btn-warning">Change Authorization</a></td>
+        </tr>
+    }
+</table>
+<a href="/Authorization/AddAdmin/" class="btn btn-info">Create New Admin</a>
+

@@ -1,0 +1,58 @@
+﻿@using MvcProjectCamp.EntityLayer.Concrete
+@model List<Category>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int id = 1;
+}
+
+
+<!-- jQuery Kütüphanesi (İlk Yüklenecek) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- CSS Dosyaları (HTTPS ile Güncellenmiş) -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+<h3>Categories</h3>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Category No</th>
+        <th>Category Name</th>
+        <th>Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@id</td>
+            <td>@item.CategoryName</td>
+            <td>@item.Description</td>
+            <td><a href="Category/DeleteCategory/@item.CategoryId" class="btn btn-secondary">Delete</a></td>
+            <td><a href="Category/UpdateCategory/@item.CategoryId" class="btn btn-warning">Update</a></td>
+        </tr>
+        id++;
+    }
+</table>
+<a href="/Category/CreateCategory" class="btn btn-info">Create Category</a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var message = '@TempData["SuccessMessage"]';
+        if (message && message !== "") {
+            Swal.fire({
+                title: 'Success!',
+                text: message,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+</script>

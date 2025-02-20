@@ -1,0 +1,27 @@
+﻿@model MvcProjectCamp.EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3>Create New Admin</h3>
+<br />
+@using (Html.BeginForm("AddAdmin", "Authorization", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Username")
+        @Html.TextBoxFor(x => x.AdminUsername, new { @class = "form-control" })
+        <br />
+        @Html.Label("Password")
+        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+        <br />
+        @Html.Label("Role")
+        @Html.DropDownListFor(x=>x.AdminId, (List<SelectListItem>)ViewBag.Roles, "Select a Role", new {@class="form-control"})
+        <br />
+        <button class="btn btn-info mt-3">Save</button>
+    </div>
+}
+
+

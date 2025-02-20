@@ -1,0 +1,29 @@
+﻿@model MvcProjectCamp.EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "UpdateHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Update Heading</h2>
+@using (Html.BeginForm("UpdateHeading", "Heading", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Heading Id")
+        @Html.TextBoxFor(x => x.HeadingId, new { @class = "form-control" })
+        <br />
+        @Html.Label("Heading Name")
+        @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Date")
+        @Html.TextBoxFor(x => x.HeadingId, new { @class = "form-control" })
+        <br />
+        @Html.Label("Author")
+        @Html.TextBoxFor(x => x.Writer.WriterName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Category")
+        @Html.TextBoxFor(x => x.Category.CategoryName, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Update</button>
+    </div>
+}
+

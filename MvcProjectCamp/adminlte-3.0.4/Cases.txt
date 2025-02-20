@@ -1,0 +1,16 @@
+5.Project Cases (Api Project)
+
+-Anasayfa ve 3 adet tablo olacak:
+     *feature 
+     *kategoriler
+     *ürünler tablosu olacak
+
+-Proje tamamen api de yazılacak ve n katmanlı mimaride olacak
+-Api de testler swagger da yapılıp consume işlemi gerçekleştirilecek
+-Admin paneli olsun(complex olmasına gerek yok)
+
+
+6.Project Cases
+
+-Rapid Api üzerinde Booking isimli apinin search hotel kısmında herhangi bir booking verisini kullanarak seçtiğimiz bir otel teması üzerinde listeme yapılacak.
+     * ayrıca bir buton ekle ve butona tıklandığında otelin detayları gözüksün

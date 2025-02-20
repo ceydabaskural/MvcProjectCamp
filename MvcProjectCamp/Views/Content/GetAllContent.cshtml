@@ -1,0 +1,23 @@
+﻿﻿@using MvcProjectCamp.EntityLayer.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "GetAllContent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("GetAllContent", "Content", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            @Html.TextBox("p", null, new { @class = "form-control", @placeholder = "Search..." })
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    }
+</div>
+
+@foreach (var item in Model)
+{
+    <p>@item.ContentValue</p>
+}
